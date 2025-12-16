@@ -1,14 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-// IMPORT THE IMAGE: Ensure landingpage.jpg is in src/assets/
 import landingBg from '../assets/landingpage.jpg';
 
 function Landing() {
   const navigate = useNavigate();
 
-  // --- STYLES ---
-
-  // 1. Main Container
   const containerStyle = {
     backgroundImage: `url(${landingBg})`,
     backgroundSize: 'cover',
@@ -25,7 +21,6 @@ function Landing() {
     overflow: 'hidden'
   };
 
-  // 2. Radiant Title Text
   const titleStyle = {
     fontSize: 'clamp(3rem, 8vw, 5rem)',
     fontWeight: '900',
@@ -42,7 +37,6 @@ function Landing() {
     filter: 'drop-shadow(0 0 15px rgba(150, 70, 255, 0.5)) drop-shadow(0 0 30px rgba(0, 198, 255, 0.3))',
   };
 
-  // 3. Split Layout Container
   const splitLayoutContainer = {
     display: 'flex',
     flexDirection: 'row',
@@ -56,7 +50,6 @@ function Landing() {
     flexWrap: 'wrap'
   };
 
-  // 4. Left Side: Information Panel
   const leftInfoStyle = {
     flex: '1 1 400px',
     textAlign: 'left',
@@ -83,7 +76,6 @@ function Landing() {
     maxWidth: '500px'
   };
 
-  // 5. Right Side: Button Container
   const rightButtonStyle = {
     flex: '1 1 400px',
     display: 'flex',
@@ -93,24 +85,17 @@ function Landing() {
     justifyContent: 'center'
   };
 
-  // --- UPDATED BUTTON STYLE: FIXED WIDTH & SQUARISH ---
   const buttonBaseStyle = {
     padding: '25px 20px',  
     fontSize: '24px',
     fontWeight: '800',
     cursor: 'pointer',
     color: 'white',
-    border: 'none',
-    
-    // --- CHANGED FROM 60px TO 10px ---
-    borderRadius: '20px',   // Squarish with minimal curve
-    
-    // --- FIXED WIDTH ---
-    width: '400px',       // Forces exact same width for both
-    maxWidth: '90vw',     // Responsive for mobile
-    
-    boxShadow: '0 10px 20px -10px rgba(0,0,0,0.5)',
-    transition: 'transform 0.2s ease, box-shadow 0.2s ease',
+    borderRadius: '20px',
+    width: '400px',       
+    maxWidth: '90vw', 
+    boxSizing: 'border-box',
+    transition: 'all 0.3s ease',
     textTransform: 'uppercase',
     letterSpacing: '1.5px',
     display: 'flex',        
@@ -118,32 +103,49 @@ function Landing() {
     alignItems: 'center'
   };
 
-  // Vibrant Green/Blue Gradient for Corporations
   const donateBtnStyle = {
     ...buttonBaseStyle,
-    backgroundImage: 'linear-gradient(135deg, #00b09b 0%, #96c93d 100%)',
+    backgroundImage: 'linear-gradient(135deg, #021B79 0%, #0575E6 100%)',
+    border: '3px solid #00c6ff', 
+    boxShadow: '0 0 25px rgba(0, 198, 255, 0.6)', 
   };
 
-  // Vibrant Blue/Purple Gradient for Schools
   const requestBtnStyle = {
     ...buttonBaseStyle,
     backgroundImage: 'linear-gradient(135deg, #3b26c5 0%, #8935e9 100%)',
+    border: '3px solid #d4aaff', 
+    boxShadow: '0 0 25px rgba(180, 100, 255, 0.6)',
   };
 
-  const addHover = (e) => { e.currentTarget.style.transform = 'translateY(-5px)'; e.currentTarget.style.boxShadow = '0 20px 40px -10px rgba(0,0,0,0.8)'; }
-  const removeHover = (e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.boxShadow = '0 10px 20px -10px rgba(0,0,0,0.5)'; }
+  const handleDonateHover = (e) => {
+    e.currentTarget.style.transform = 'translateY(-5px)';
+    e.currentTarget.style.boxShadow = '0 0 50px rgba(0, 198, 255, 1)';
+    e.currentTarget.style.border = '3px solid #ffffff';
+  }
 
+  const handleDonateLeave = (e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = '0 0 25px rgba(0, 198, 255, 0.6)';
+    e.currentTarget.style.border = '3px solid #00c6ff';
+  }
+
+  const handleRequestHover = (e) => {
+    e.currentTarget.style.transform = 'translateY(-5px)';
+    e.currentTarget.style.boxShadow = '0 0 50px rgba(180, 100, 255, 1)';
+    e.currentTarget.style.border = '3px solid #ffffff';
+  }
+
+  const handleRequestLeave = (e) => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = '0 0 25px rgba(180, 100, 255, 0.6)';
+    e.currentTarget.style.border = '3px solid #d4aaff';
+  }
 
   return (
     <div style={containerStyle}>
-      
-      {/* Top Radiant Title */}
       <h1 style={titleStyle}>TechWithTech</h1>
 
-      {/* Split Content Area */}
       <div style={splitLayoutContainer}>
-        
-        {/* Left Side: Information */}
         <div style={leftInfoStyle}>
           <h2 style={mainPointStyle}>
             Connect Tech with <span style={{color: '#00c6ff'}}>Future Techies</span>
@@ -153,12 +155,12 @@ function Landing() {
           </p>
         </div>
 
-        {/* Right Side: Buttons */}
         <div style={rightButtonStyle}>
           <button 
             onClick={() => navigate('/login')} 
             style={donateBtnStyle}
-            onMouseOver={addHover} onMouseOut={removeHover}
+            onMouseOver={handleDonateHover} 
+            onMouseOut={handleDonateLeave}
           >
             Corporations: Donate
           </button>
@@ -166,7 +168,8 @@ function Landing() {
           <button 
             onClick={() => navigate('/login')} 
             style={requestBtnStyle}
-            onMouseOver={addHover} onMouseOut={removeHover}
+            onMouseOver={handleRequestHover} 
+            onMouseOut={handleRequestLeave}
           >
             Schools: Request
           </button>
