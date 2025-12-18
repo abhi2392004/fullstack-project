@@ -6,7 +6,7 @@
 
 > **"Connecting Tech with Future Techies"**
 
-Hi! I'm **Arya**, and this is my latest full-stack project. I built **TechWithTech** to solve a real-world problem while mastering modern web development.
+Hi! I'm **Abhiram**, and this is my latest full-stack project. I built **TechWithTech** to solve a real-world problem while mastering modern web development.
 
 We are the bridge connecting cutting-edge software companies directly with schools. We facilitate the donation of vital resources (computers, lab equipment, books) to empower the next generation of innovators.
 
@@ -201,11 +201,3 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ---
 
-## 📞 Contact
-
-**Arya**
-
-* **GitHub:** https://github.com/arya0210
-* **Email:** vardhanarya97@gmail.com
-
-```
