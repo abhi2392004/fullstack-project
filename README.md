@@ -173,13 +173,25 @@ npm start
 
 ## 🔌 API Endpoints Overview
 
-| Method   |    Endpoint      |                   Description                 |
-| ---------|------------------|-----------------------------------------------|
-| **POST** | `/auth/login`    | User login (School/Company)                   |
-| **POST** | `/auth/register` | Register a new account                        |
-| **GET**  | `/requests/`     | List all active equipment requests            |
-| **POST** | `/requests/`     | Create a new equipment request (School only)  |
-| **POST** | `/donations/`    | Pledge a donation to a request (Company only) |
+| Method | Endpoint | Description |
+| :--- | :--- | :--- |
+| **Auth** | | |
+| `POST` | `/signup` | Register a new user (School or Company) |
+| `POST` | `/login` | Authenticate user and receive access token |
+| `POST` | `/forgot-password/temp` | Initiate password recovery (Temporary) |
+| `POST` | `/forgot-password/otp` | Send OTP for password recovery |
+| `POST` | `/reset-password/verify` | Verify OTP and reset password |
+| **Requests** | | |
+| `POST` | `/requests/create` | Submit a new equipment requirement (School) |
+| `GET` | `/requests/{party_id}` | View requests for a specific user/school |
+| **Donations** | | |
+| `POST` | `/donations/create` | Pledge a new donation item (Company) |
+| `GET` | `/donations/{party_id}` | View donations made by a specific company |
+| `GET` | `/donations/available` | List all unmatched/available donations |
+| **Matching** | | |
+| `GET` | `/matches/donations/{item_type}` | Find donations matching a specific item type |
+| `GET` | `/matches/requests/{item_type}` | Find requests matching a specific item type |
+| `POST` | `/transact/match` | Execute a match to finalize a donation |
 
 ---
 
