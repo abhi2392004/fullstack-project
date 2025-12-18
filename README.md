@@ -187,11 +187,3 @@ npm start
 | `GET` | `/matches/requests/{item_type}` | Find requests matching a specific item type |
 | `POST` | `/transact/match` | Execute a match to finalize a donation |
 
----
-
-## 📄 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
-
