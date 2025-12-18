@@ -83,13 +83,7 @@ Follow these instructions to set up the project locally on your machine.
 * Python 3.9+ installed
 * PostgreSQL installed and running
 
-### 1. Clone the Repository
 
-```bash
-git clone https://github.com/arya0210/TechWithTech.git
-cd TechWithTech
-
-```
 
 ### 2. Backend Setup
 
